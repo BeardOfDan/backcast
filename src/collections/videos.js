@@ -1,12 +1,13 @@
 var Videos = Backbone.Collection.extend({
 
-  url: 'src/data/exampleVideoData.js',
+  // url: 'src/data/exampleVideoData.js',
 
   model: Video,
 
   initialize: function() {
-    console.log('this', this);
+    // console.log('this', this);
     // this.fetch();    
+
   }
  
 });
