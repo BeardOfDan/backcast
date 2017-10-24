@@ -4,10 +4,10 @@ var Videos = Backbone.Collection.extend({
 
   model: Video,
 
-  initialize: function() {
-    // console.log('this', this);
-    // this.fetch();    
+  // initialize: function() {
+  //   // console.log('this', this);
+  //   // this.fetch();    
 
-  }
+  // }
  
 });
