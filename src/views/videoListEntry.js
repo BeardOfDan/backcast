@@ -1,5 +1,14 @@
 var VideoListEntryView = Backbone.View.extend({
 
+  render: function() {
+    this.$el.html(this.template(this.model.attributes));
+    return this;
+  },
+
+  template: templateURL('src/templates/videoListEntry.html')
+
+});
+
 //   intialize: function() {
 //     this.render();
 //   },
@@ -56,6 +65,3 @@ var VideoListEntryView = Backbone.View.extend({
 
   //   return this;
   // },
-
-  // template: templateURL('src/templates/videoListEntry.html')
-});

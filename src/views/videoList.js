@@ -1,5 +1,26 @@
 var VideoListView = Backbone.View.extend({
 
+  render: function() {
+    // remove listeners from the children (as they will be overwritten)
+    this.$el.children().detach();
+    this.$el.html(this.template()); // overwrite the existing html
+
+    // for each element in teh collection, run the renderVideo method
+    this.collection.each(this.renderVideo, this);
+    return this;
+  },
+
+  renderVideo: function(video) {
+    this.$('.video-list').append(
+      new VideoListEntryView({
+        model: video
+      }).render().el // since render returns 'this', it is appending this.el for the video
+    );
+  },
+
+  template: templateURL('src/templates/videoList.html')
+});
+
   // initialize: function() {
   //   if (this.collection) {
   //     this.collection.on('sync', this.render, this);
@@ -71,6 +92,3 @@ var VideoListView = Backbone.View.extend({
 
   //   return this;
   // },
-
-  // template: templateURL('src/templates/videoList.html')
-});
