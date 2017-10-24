@@ -1,23 +1,23 @@
 var AppView = Backbone.View.extend({
 
-  // el: '#app',
+  el: '#app',
 
-  // initialize: function() {
-  //   this.videos = new Videos(exampleVideoData);
-  //   this.render(); 
-  //   //console.log('THIS', this.videos.models);
-  // },
+  initialize: function() {
+    this.videos = new Videos();
 
-  // render: function() {
-  //   this.$el.html(this.template());
-  //   this.videoPlayer = new VideoPlayerView({el: this.$('.player'), model: Video });
-  //   this.SearchView = new SearchView({el: this.$('.search'), model: Video});
-  //   this.videoListView = new VideoListView({el: this.$('.list'), model: Video});
-  //   //this.listenTo(this.videoListView, 'selectVideo', this.videos.models[0].select());
-  //   console.log(this);
-  //   return this;
-  // },
+    this.render();  
+  },
 
-  // template: templateURL('src/templates/app.html')
+  render() {
+    this.$el.html(this.template());
+
+    new VideoListView({
+      el: this.$('.list')
+    }).render();
+
+    return this;
+  },
+
+  template: templateURL('src/templates/app.html')
 
 });
